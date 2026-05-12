@@ -1,6 +1,26 @@
-# opencode-review
+<div align="center">
+  <h1>🔍 opencode-review</h1>
+  
+  <p>
+    <strong>AI-Powered Code Review, Security Audit &amp; Codebase Explainer</strong><br>
+    <strong>100% Free • Open Source • Unlimited Use</strong>
+  </p>
 
-AI-powered code review, security audit, and codebase explainer — built inside [OpenCode](https://opencode.ai). Drop into any project.
+  <p>
+    Built for <a href="https://opencode.ai">OpenCode</a> — drop it into any project in seconds.
+  </p>
+
+  <img src="https://img.shields.io/badge/Open_Source-100%25-brightgreen" alt="Open Source">
+  <img src="https://img.shields.io/badge/Free-Unlimited-blue" alt="100% Free">
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License">
+  <img src="https://img.shields.io/badge/Shell-100%25-orange" alt="Shell">
+
+  <br><br>
+  <a href="#installation">🚀 Install in 10 Seconds</a> • 
+  <a href="#commands">📋 Commands</a> • 
+  <a href="#how-it-works">⚙️ How it Works</a> • 
+  <a href="#customising">🛠️ Customise</a>
+</div>
 
 ---
 
@@ -91,3 +111,10 @@ Commands are plain markdown files in `.opencode/commands/`. Edit them to match y
 ## License
 
 MIT
+
+---
+
+<div align="center">
+  <p>Made with ❤️ for better code, faster reviews, and happier teams.</p>
+  <p><strong>Star the repo if you find it useful! ⭐</strong></p>
+</div>
