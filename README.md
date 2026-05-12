@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><img width="300" height="150" alt="image" src="https://github.com/user-attachments/assets/86f31552-f029-4516-a51d-e2864835280e" />
+  <h1>OpenCode Review
 </h1>
   
   <p>
