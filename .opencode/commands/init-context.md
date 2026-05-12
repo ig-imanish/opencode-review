@@ -33,75 +33,13 @@ From what you read, determine:
 
 Create or overwrite `CONTEXT.md` in the project root with a fully filled-in version.
 
-Use this exact template — fill in every section with real, specific information from what you read. Do not leave placeholder comments. Do not write "unknown" — if you couldn't determine something, omit that line.
+**Step 4 — Add CONTEXT.md to .gitignore**
 
-Be specific:
-- BAD: "Uses a layered architecture"
-- GOOD: "HTTP handlers in src/routes/ → business logic in src/services/ → DB queries in src/db/ — handlers should not query DB directly"
+Check if `.gitignore` exists in the project root. If it does, append `CONTEXT.md` to it on its own line if it is not already present. If `.gitignore` does not exist, do nothing — do not create one.
 
-BAD: "Error handling uses standard patterns"
-GOOD: "All errors thrown as new AppError(message, statusCode) from src/lib/errors.ts — never throw plain Error — caught by global handler in src/middleware/error.ts"
+**Step 5 — Tell the user what you found and what to verify**
 
----
-
-Write CONTEXT.md now with this structure:
-
-```
-# Project context
-
-## What this project is
-[1-2 sentences: what it does, who uses it, rough scale]
-
-## Tech stack
-- Language: [exact language + version if detectable]
-- Framework: [exact framework + version]
-- Database: [DB name + ORM/query builder if any]
-- Auth: [exact auth mechanism]
-- Testing: [test framework + what's tested]
-- [add any other significant deps]
-
-## Project structure
-[folder tree with one-line description of what lives in each]
-
-## Architecture
-[describe the layers and how a request flows through them — be specific]
-
-## Coding conventions
-
-### Error handling
-[exact pattern used in this codebase with a real example]
-
-### Input validation
-[where and how — be specific, mention the library]
-
-### Database access
-[where queries live, what's allowed, what's not]
-
-### Auth pattern
-[how auth works, what middleware/decorator, where it's applied]
-
-### Naming
-[file naming, function naming, DB naming]
-
-## What /review should always flag
-[list specific things based on this project's actual patterns]
-
-## What /review should ignore
-[generated files, legacy dirs, etc.]
-
-## Security rules for this project
-[based on what you saw — data model, auth, endpoints]
-
-## Known tricky parts
-[anything that looks odd but is intentional — only if you spotted something]
-
-## Active tech debt / refactors in progress
-[only if you saw TODOs, deprecated patterns, migration comments]
-```
-
-**Step 4 — Tell the user what you found and what to verify**
-
-After writing CONTEXT.md, print a short summary:
+After writing CONTEXT.md (and updating .gitignore if applicable), print a short summary:
 
 ```
 CONTEXT.md generated.
