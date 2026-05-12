@@ -21,12 +21,12 @@ AI-powered code review, security audit, and codebase explainer — built inside 
 
 **Global (recommended):**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/refs/heads/main/install.sh | bash
 ```
 
 **Per project:**
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/main/install.sh | bash -s -- --project
+curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/refs/heads/main/install.sh| bash -s -- --project
 ```
 
 **Manual:**
@@ -83,7 +83,7 @@ Commands are plain markdown files in `.opencode/commands/`. Edit them to match y
 
 ## Sponsor
 
-- [Buy Me a Coffee](https://buymeacoffee.com/ig.imanish)
+- [Buy Me a Coffee](https://buymeacoffee.com/Manixh02)
 - [GitHub Sponsors](https://github.com/sponsors/ig-imanish)
 
 ---
