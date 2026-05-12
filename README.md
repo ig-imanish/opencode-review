@@ -7,7 +7,7 @@
   </p>
 
   <p>
-    Built for <a href="https://opencode.ai">OpenCode</a> — drop it into any project in seconds.
+    Built for <a href="https://opencode.ai">OpenCode CLI</a> - drop it into any project in seconds.
   </p>
 
   <img src="https://img.shields.io/badge/Open_Source-100%25-brightgreen" alt="Open Source">
