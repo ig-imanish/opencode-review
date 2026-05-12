@@ -1,0 +1,19 @@
+{
+  "$schema": "https://opencode.ai/config.schema.json",
+
+  "model": "openrouter/google/gemini-flash-1.5",
+
+  "instructions": "Always read CONTEXT.md at the start of every session to understand this project's conventions, patterns, and rules before doing anything else.",
+
+  "providers": {
+    "openrouter": {
+      "apiKey": "${OPENROUTER_API_KEY}"
+    },
+    "ollama": {
+      "apiBase": "http://localhost:11434"
+    }
+  },
+
+  "autoshare": false,
+  "autosave": true
+}
