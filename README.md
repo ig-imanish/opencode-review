@@ -40,6 +40,16 @@
 
 ## Installation
 
+### Prerequisites
+
+Before installing opencode-review, you need OpenCode installed on your machine:
+
+```bash
+curl -fsSL https://get.opencode.ai | bash
+```
+
+If you already have OpenCode installed, you can skip this step.
+
 **Global (recommended):**
 ```bash
 curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/refs/heads/main/install.sh | bash
@@ -60,7 +70,7 @@ cp -r opencode-review/.opencode YOUR_PROJECT/.opencode
 
 ## Setup
 
-1. **Install OpenCode** — [opencode.ai](https://opencode.ai)
+1. **Install OpenCode** — [opencode.ai](https://opencode.ai) (or use the curl command above)
 2. **Configure a model** — [How to link any model](https://docs.opencode.ai/providers)
 3. **Run** — `opencode`, then type `/mx-init-context` or any command above
 
