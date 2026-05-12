@@ -45,7 +45,7 @@
 Before installing opencode-review, you need OpenCode installed on your machine:
 
 ```bash
-curl -fsSL https://get.opencode.ai | bash
+curl -fsSL https://opencode.ai/install | bash
 ```
 
 If you already have OpenCode installed, you can skip this step.
