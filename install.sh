@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # opencode-review installer
 # Usage:
-#   Install globally:      curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/opencode-review/main/install.sh | bash
-#   Install to project:    curl -fsSL https://raw.githubusercontent.com/YOUR_USERNAME/opencode-review/main/install.sh | bash -s -- --project
+#   Install globally:      curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/main/install.sh | bash
+#   Install to project:    curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/main/install.sh | bash -s -- --project
 
 set -e
 
-REPO="YOUR_USERNAME/opencode-review"
+REPO="ig-imanish/opencode-review"
 BRANCH="main"
 BASE_URL="https://raw.githubusercontent.com/$REPO/$BRANCH"
 
