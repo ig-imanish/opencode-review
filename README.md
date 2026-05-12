@@ -45,11 +45,17 @@
 
 Before installing opencode-review, you need OpenCode installed on your machine.
 
+<<<<<<< HEAD
 Choose your platform:
 
 | Platform                    | Install OpenCode                     |
 | --------------------------- | ------------------------------------ |
 | **Linux / macOS / Windows** | [opencode.ai/](https://opencode.ai/) |
+=======
+```bash
+curl -fsSL https://opencode.ai/install | bash
+```
+>>>>>>> dcfc5d05739f4c0af016f44778fbc975af4a5b76
 
 If you already have OpenCode installed, you can skip this step.
 
