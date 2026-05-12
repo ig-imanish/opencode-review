@@ -1,5 +1,6 @@
 <div align="center">
-  <h1>🔍 opencode-review</h1>
+  <h1>OpenCode Review
+</h1>
   
   <p>
     <strong>AI-Powered Code Review, Security Audit &amp; Codebase Explainer</strong><br>
