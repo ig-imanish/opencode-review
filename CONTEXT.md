@@ -1,98 +1,141 @@
-# Project context
-
-<!-- 
-  This file is read by OpenCode before every AI session.
-  Fill it out for your project — the more specific you are,
-  the smarter /review, /review-security, and /explain become.
-  
-  Delete sections that don't apply. Keep entries short and concrete.
--->
+# Project context for opencode-review
+# 
+# This file is read automatically before every /review, /review-security, and /explain session.
+# The more you fill in, the smarter and more accurate the reviews become.
+#
+# Run /init-context inside OpenCode to auto-generate this from your project.
+# Run /update-context to refresh it after major changes.
 
 ## What this project is
-<!-- One paragraph. What does it do, who uses it, what stack. -->
-<!-- Example: "A SaaS invoicing API built in Go. Exposes REST endpoints consumed by a React frontend. Uses PostgreSQL for storage, Redis for sessions, and Stripe for payments." -->
+<!-- Auto-detected or fill in: what does it do, who uses it, what's the scale -->
 
 
 ## Tech stack
-- **Language:** 
-- **Framework:** 
-- **Database:** 
-- **Auth:** 
-- **Infra:** 
+<!-- Fill what applies, delete the rest -->
+- **Language:**          # e.g. TypeScript, Go, Python, Rust, Java
+- **Runtime/Version:**   # e.g. Node 20, Go 1.22, Python 3.12
+- **Framework:**         # e.g. Express, FastAPI, Gin, Rails, Django, Next.js
+- **Database:**          # e.g. PostgreSQL 15, MongoDB, SQLite, Redis
+- **ORM/Query builder:** # e.g. Prisma, SQLAlchemy, GORM, ActiveRecord
+- **Auth:**              # e.g. JWT, OAuth2, session cookies, Clerk, Auth0
+- **Queue/Jobs:**        # e.g. BullMQ, Celery, Sidekiq, none
+- **Infra/Deploy:**      # e.g. Docker + Railway, Vercel, AWS Lambda, bare VPS
+- **Testing:**           # e.g. Jest, Vitest, pytest, Go test, RSpec
 
-## Architecture
-<!-- Brief description of the layers or modules. -->
-<!-- Example: "cmd/ → entrypoint, internal/handler → HTTP layer, internal/service → business logic, internal/repo → DB queries" -->
+## Project structure
+<!-- Describe the main folders and what lives where -->
+<!-- Example:
+src/
+  routes/     → HTTP handlers (thin, no business logic)
+  services/   → business logic
+  db/         → all database queries
+  middleware/ → auth, logging, validation
+  types/      → shared TypeScript types
+tests/        → integration tests (need running DB)
+-->
 
+
+## Architecture style
+<!-- Delete what doesn't apply -->
+- [ ] Monolith
+- [ ] Monorepo (list packages: )
+- [ ] Microservices (list services: )
+- [ ] Serverless / edge functions
+- [ ] MVC
+- [ ] Layered (handler → service → repo)
+- [ ] Domain-driven
 
 ## Coding conventions
 
 ### Error handling
-<!-- How errors should be wrapped, returned, and logged in this codebase. -->
-<!-- Example: "Always wrap with context: fmt.Errorf("doing X: %w", err). Never swallow errors silently." -->
-
-
-### Naming
-<!-- Any naming conventions beyond language defaults. -->
-<!-- Example: "DB models are in models/, suffixed with Model (UserModel). API response types are in types/, no suffix." -->
-
-
-### Patterns to follow
-<!-- Project-specific patterns that reviewers should enforce. -->
-<!-- Example:
-- All DB queries go through the repository layer, never directly in handlers
-- All endpoints require auth middleware unless explicitly marked `// public`
-- Background jobs must be idempotent
+<!-- How errors should be handled in this codebase -->
+<!-- Examples:
+  Node:   throw new AppError('message', 400) — never throw plain Error
+  Go:     return fmt.Errorf("context: %w", err) — always wrap
+  Python: raise ValueError("message") — log at the boundary, not inside
 -->
 
 
-### Patterns to avoid
-<!-- Anti-patterns specific to this project. -->
-<!-- Example:
-- Don't use global state outside of main.go
-- Don't call external APIs directly from handlers — use the service layer
-- Don't write raw SQL strings — use the query builder in internal/db
+### Validation
+<!-- Where and how input is validated -->
+<!-- Examples:
+  We use zod on every route handler before touching the DB
+  We use pydantic models for all request bodies
+  express-validator middleware on all POST/PUT routes
 -->
 
 
-## Security rules
-<!-- Project-specific security requirements for the reviewer to check. -->
-<!-- Example:
-- All user-facing IDs must be UUIDs, never sequential integers (IDOR risk)
-- File uploads must be validated against the allowlist in internal/upload/validate.go
-- Never log request bodies — they may contain PII
+### Auth pattern
+<!-- How auth works in this codebase -->
+<!-- Examples:
+  JWT in Authorization header — middleware extracts user and adds to req.user
+  Session cookie — requireAuth() middleware applied to all routes except /public/*
+  All endpoints need auth unless explicitly decorated with @public
 -->
 
 
-## Testing conventions
-<!-- What tests exist, where they live, what counts as enough coverage. -->
-<!-- Example:
-- Unit tests: *_test.go next to the file being tested
-- Integration tests: tests/integration/ — require a running DB
-- Every handler must have at least one happy-path and one error-path test
+### Database access pattern
+<!-- Rules about how DB is accessed -->
+<!-- Examples:
+  All queries go through src/db/ — never query directly in routes or services
+  Use Prisma — no raw SQL unless in src/db/raw/
+  Repository pattern — one file per model in internal/repo/
 -->
 
 
-## Things that look odd but are intentional
-<!-- Patterns that might trigger a false-positive review finding. -->
-<!-- Example:
-- The double-write to Redis in session.go is intentional — it handles clock skew
-- We use panic() in the config loader deliberately — misconfiguration should crash on startup
+### Naming conventions
+<!-- Examples:
+  Files: kebab-case (user-service.ts)
+  Functions: camelCase
+  DB tables: snake_case, plural (user_sessions)
+  Env vars: SCREAMING_SNAKE_CASE, all in .env.example
 -->
 
 
-## What /review should be strict about
-<!-- Specific things you want the reviewer to flag every time, even for INFO. -->
-<!-- Example:
-- Any hardcoded string that looks like a URL or env value
-- Any function longer than 60 lines
-- Any exported function missing a doc comment
+## What /review should always flag
+<!-- Things you want caught every single time, no exceptions -->
+<!-- Examples:
+  Any hardcoded URL, token, or password
+  Any console.log left in production code paths
+  Any TODO older than the current sprint
+  Direct DB access outside the db/ layer
+  Missing input validation on any new endpoint
 -->
 
 
 ## What /review should ignore
-<!-- Things that would otherwise generate noise. -->
-<!-- Example:
-- The legacy/ directory is not being maintained — skip it
-- Ignore line length in generated files (*.pb.go, *_gen.go)
+<!-- Reduce noise — things that look wrong but are fine -->
+<!-- Examples:
+  legacy/ directory — not being maintained
+  *.generated.ts files — auto-generated, don't review
+  migrations/ — reviewed separately
+  vendor/ or node_modules/ — obviously
+-->
+
+
+## Security rules specific to this project
+<!-- Project-specific security requirements -->
+<!-- Examples:
+  All user-facing IDs must be UUIDs — never expose sequential integers (IDOR risk)
+  File uploads must go through src/upload/validate.ts before saving
+  Never log req.body — may contain passwords or PII
+  All admin routes must check req.user.role === 'admin' not just req.user
+-->
+
+
+## Known tricky parts
+<!-- Things that look wrong but are intentional — prevents false positives -->
+<!-- Examples:
+  The double-write in session.ts is intentional — handles clock skew
+  We use any in src/legacy/ deliberately — being cleaned up in Q3
+  The recursive call in parser.ts has a depth limit — not infinite recursion
+-->
+
+
+## Things we're actively improving
+<!-- Context for the reviewer — known tech debt, ongoing refactors -->
+<!-- Examples:
+  Moving from callbacks to async/await — new code should use async/await
+  Migrating from REST to tRPC — new endpoints should use tRPC
+  Adding zod validation — not all routes have it yet, new ones must
 -->
