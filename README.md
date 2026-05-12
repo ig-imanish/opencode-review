@@ -1,5 +1,6 @@
 <div align="center">
-  <h1>🔍 opencode-review</h1>
+  <h1><img width="300" height="150" alt="image" src="https://github.com/user-attachments/assets/86f31552-f029-4516-a51d-e2864835280e" />
+</h1>
   
   <p>
     <strong>AI-Powered Code Review, Security Audit &amp; Codebase Explainer</strong><br>
