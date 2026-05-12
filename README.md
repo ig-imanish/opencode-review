@@ -45,7 +45,6 @@
 
 Before installing opencode-review, you need OpenCode installed on your machine.
 
-<<<<<<< HEAD
 Choose your platform:
 
 | Platform                    | Install OpenCode                     |
