@@ -16,25 +16,26 @@
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License">
   <img src="https://img.shields.io/badge/Shell-100%25-orange" alt="Shell">
 
-  <br><br>
-  <a href="#installation">🚀 Install in 10 Seconds</a> • 
-  <a href="#commands">📋 Commands</a> • 
-  <a href="#how-it-works">⚙️ How it Works</a> • 
-  <a href="#customising">🛠️ Customise</a>
+<br><br>
+<a href="#installation">🚀 Install in 10 Seconds</a> •
+<a href="#commands">📋 Commands</a> •
+<a href="#how-it-works">⚙️ How it Works</a> •
+<a href="#customising">🛠️ Customise</a>
+
 </div>
 
 ---
 
 ## Commands
 
-| Command | What it does |
-|---|---|
-| `/mx-init-context` | Generate CONTEXT.md from your codebase |
-| `/mx-review` | Full review: bugs, security, perf, style, tests |
+| Command               | What it does                                                    |
+| --------------------- | --------------------------------------------------------------- |
+| `/mx-init-context`    | Generate CONTEXT.md from your codebase                          |
+| `/mx-review`          | Full review: bugs, security, perf, style, tests                 |
 | `/mx-review-security` | Focused security audit: injection, auth, secrets, data exposure |
-| `/mx-explain` | Deep codebase explanation: architecture, data flow, patterns |
-| `/mx-fix` | Auto-fix issues found by `/mx-review` |
-| `/mx-update-context` | Refresh CONTEXT.md after major changes |
+| `/mx-explain`         | Deep codebase explanation: architecture, data flow, patterns    |
+| `/mx-fix`             | Auto-fix issues found by `/mx-review`                           |
+| `/mx-update-context`  | Refresh CONTEXT.md after major changes                          |
 
 ---
 
@@ -42,29 +43,55 @@
 
 ### Prerequisites
 
-Before installing opencode-review, you need OpenCode installed on your machine:
+Before installing opencode-review, you need OpenCode installed on your machine.
 
-```bash
-curl -fsSL https://get.opencode.ai | bash
-```
+Choose your platform:
+
+| Platform                    | Install OpenCode                     |
+| --------------------------- | ------------------------------------ |
+| **Linux / macOS / Windows** | [opencode.ai/](https://opencode.ai/) |
 
 If you already have OpenCode installed, you can skip this step.
 
-**Global (recommended):**
+### Install opencode-review
+
+**Install:**
+
 ```bash
 curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/refs/heads/main/install.sh | bash
 ```
 
-**Per project:**
+or with wget:
+
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/refs/heads/main/install.sh| bash -s -- --project
+wget -qO- https://raw.githubusercontent.com/ig-imanish/opencode-review/refs/heads/main/install.sh | bash
 ```
 
-**Manual:**
+**Per project:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/refs/heads/main/install.sh | bash -s -- --project
+```
+
+**Windows (PowerShell):**
+
+```powershell
+# With wget
+wget https://raw.githubusercontent.com/ig-imanish/opencode-review/main/install.sh -O install.sh; bash install.sh
+
+# Or clone manually
+git clone https://github.com/ig-imanish/opencode-review.git
+Copy-Item -Recurse opencode-review\.opencode YOUR_PROJECT\.opencode
+```
+
+**Manual (any OS):**
+
 ```bash
 git clone https://github.com/ig-imanish/opencode-review.git
 cp -r opencode-review/.opencode YOUR_PROJECT/.opencode
 ```
+
+> **Note:** The install.sh script requires Linux/macOS or Windows WSL/Git Bash. For native Windows, clone manually.
 
 ---
 
@@ -82,9 +109,11 @@ Open `CONTEXT.md` in your project root and fill in your project conventions:
 
 ```markdown
 ## What this project is
+
 A SaaS billing API in Go. REST endpoints, PostgreSQL, Stripe.
 
 ## Coding conventions
+
 - Errors wrapped with fmt.Errorf("doing X: %w", err)
 - All DB queries go through internal/repo, never directly in handlers
 - Every endpoint requires auth middleware unless marked `// public`
