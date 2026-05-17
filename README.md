@@ -143,7 +143,7 @@ Commands are plain markdown files in `.opencode/commands/`. Edit them to match y
 
 ## Sponsor
 
-- [Buy Me a Coffee](https://buymeacoffee.com/Manixh02)
+- [Buy Me a Coffee](https://buymeacoffee.com/Manixh)
 - [GitHub Sponsors](https://github.com/sponsors/ig-imanish)
 
 ---
