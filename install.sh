@@ -10,7 +10,7 @@ REPO="ig-imanish/opencode-review"
 BRANCH="main"
 BASE_URL="https://raw.githubusercontent.com/$REPO/$BRANCH"
 
-COMMANDS=("mx-init-context.md" "mx-review.md" "mx-review-security.md" "mx-explain.md" "mx-fix.md" "mx-update-context.md")
+COMMANDS=("mx-init-context.md" "mx-review.md" "mx-review-security.md" "mx-explain.md" "mx-fix.md" "mx-update-context.md" "mx-audit.md")
 
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -49,6 +49,7 @@ echo "  /mx-review          — full code review: bugs, perf, style, tests"
 echo "  /mx-review-security — security audit: injection, auth, secrets, data exposure"
 echo "  /mx-explain         — deep codebase explanation for new contributors"
 echo "  /mx-fix             — auto-fix issues found by /mx-review"
+echo "  /mx-audit           — deep full-codebase audit: bugs, edge cases, security, perf, tech debt"
 echo ""
 
 if [[ "$mode" == "project" ]]; then

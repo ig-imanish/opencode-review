@@ -35,6 +35,7 @@
 | `/mx-review-security` | Focused security audit: injection, auth, secrets, data exposure |
 | `/mx-explain`         | Deep codebase explanation: architecture, data flow, patterns    |
 | `/mx-fix`             | Auto-fix issues found by `/mx-review`                           |
+| `/mx-audit`           | Deep full-codebase audit: bugs, edge cases, security, perf      |
 | `/mx-update-context`  | Refresh CONTEXT.md after major changes                          |
 
 ---
@@ -56,7 +57,7 @@ If you already have OpenCode installed, you can skip this step.
 ### Install opencode-review
 
 **Install:**
-
+2
 ```bash
 curl -fsSL https://raw.githubusercontent.com/ig-imanish/opencode-review/refs/heads/main/install.sh | bash
 ```
